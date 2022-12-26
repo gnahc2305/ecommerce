@@ -3,6 +3,8 @@ import React from "react";
 
 import { Product, FooterBanner, HeroBanner} from '../components/index';
 
+import { client } from "../LIB/client";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
