@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home( { products, banner } ) {
   return (
     <>
-      <HeroBanner heroBanner={banner} />
+      <HeroBanner heroBanner={banner.length && banner[0]} />
 
       <div className="products-heading">
         <h2>Best Selling Products</h2>
