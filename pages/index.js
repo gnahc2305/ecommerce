@@ -7,10 +7,10 @@ import { client } from "../LIB/client";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function Home( { products, banner } ) {
   return (
     <>
-      <HeroBanner />
+      <HeroBanner heroBanner={banner} />
 
       <div className="products-heading">
         <h2>Best Selling Products</h2>
@@ -18,10 +18,22 @@ export default function Home() {
       </div>
 
       <div className="products-container">
-        {['Product1', 'Product2'].map((product) => product)}
+        {products?.map((product) => product.name)}
       </div>
 
       <FooterBanner />
     </>
   );
+}
+
+export const getServerSideProps = async () => {
+  const query = '*[_type == "product"]';
+  const products = await client.fetch(query);
+
+  const bannerQuery = '*[_type == "banner"]';
+  const banner = await client.fetch(bannerQuery);
+
+  return {
+    props: { products, banner}
+  }
 }
