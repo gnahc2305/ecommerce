@@ -1,6 +1,9 @@
-import React from 'react'
+import React from 'react';
+import Link from 'next/link';
 
-function FooterBanner() {
+import { urlFor } from '../LIB/client';
+
+function FooterBanner({ footerBanner }) {
   return (
     <div>FooterBanner</div>
   )
