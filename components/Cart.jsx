@@ -6,13 +6,13 @@ import toast from 'react-hot-toast';
 
 import { useStateContext } from '../context/StateContext';
 import { urlFor } from '../LIB/client';
-// import getStripe from '../LIB/getStripe';
+import getStripe from '../LIB/getStripe';
 
 const Cart = () => {
   const cartRef = useRef();
   const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext();
 
-  const handleCheckout = async () => {
+  const handleCheckout = async () => {d
     const stripe = await getStripe();
 
     const response = await fetch('/api/stripe', {
@@ -98,7 +98,7 @@ const Cart = () => {
               <h3>${totalPrice}</h3>
             </div>
             <div className="btn-container">
-              <button type="button" className="btn" onClick=''>
+              <button type="button" className="btn" onClick={handleCheckout}>
                 Pay with Stripe
               </button>
             </div>

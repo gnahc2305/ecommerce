@@ -4,15 +4,20 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     try {
       const params = {
-        submit_type = 'pay',
-        mode: 'payment',
+        submit_type: "pay",
+        mode: "payment",
+        payment_method_types: ["card"],
+        billing_address_collection: 'auto',
+        shipping_options: [
+            { shipping_rate: 'shr_1MWt2vIIASrWda8XbQlzoZz7' },
+            { shipping_rate: 'shr_1MWt3eIIASrWda8Xe9kZWNu8' },
+          ],
         line_items: [
           {
             price: "{{PRICE_ID}}",
             quantity: 1,
           },
         ],
-        mode: "payment",
         success_url: `${req.headers.origin}/?success=true`,
         cancel_url: `${req.headers.origin}/?canceled=true`,
       };
