@@ -1,14 +1,16 @@
 import React from "react";
-import { AiFillInstagram, AiOutlineTwitter } from "react-icons/ai";
+import { AiFillInstagram, AiOutlineTwitter,AiOutlineGithub } from "react-icons/ai";
+import Link from "next/link";
 
 function Footer() {
   return (
     <div className="footer-container">
-      <p>2022 All rights reserved</p>
+      <p>2023 All rights reserved</p>
 
       <p className="icons">
-        <AiFillInstagram />
-        <AiOutlineTwitter />
+        <Link href='https://github.com/gnahc2305'>
+        <AiOutlineGithub />
+        </Link>
       </p>
     </div>
   );

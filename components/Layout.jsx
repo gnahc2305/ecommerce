@@ -15,7 +15,7 @@ function Layout({ children }) {
         <Navbar />
       </header>
 
-      <main className="main-container">EMPTY</main>
+      <main className="main-container"></main>
         {children}
       <footer>
         <Footer />
